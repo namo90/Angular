@@ -1,0 +1,23 @@
+.full-width{
+    width: 100;
+}
+.main-div mat-card{
+    padding:0px;
+    background-color:whitesmoke;
+
+}
+.main-form{
+    padding: 20px;
+}
+.button-size:hover{
+    width: 20px;
+    
+}
+
+.reset-main{
+    padding-left: 130px;
+    margin-left: 50px;
+}
+.reset-css{
+    margin-left: 0PX;
+}

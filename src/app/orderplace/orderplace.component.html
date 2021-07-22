@@ -1,0 +1,36 @@
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+    <!-- <button class="btn-dialog-close" mat-stroked-button  (click)="onclose()" tabindex="-1"><mat-icon>close</mat-icon> -->
+
+    <mat-card fxFlex="50">
+        <mat-toolbar color="primary">Order Place <mat-icon id="close-icon" (click)="closeDialog()"
+                style="margin-left: 98px;">close</mat-icon>
+        </mat-toolbar>
+        <form (ngSubmit)="onSubmit()" fxLayoutAlign="stretch" fxLayout="column" class="main-form">
+
+            <mat-form-field class="full-width">
+                <mat-label>OrderName</mat-label>
+                <input [(ngModel)]="ordercredentails.productName" required name="productName" type="text" matInput />
+                <mat-icon matSuffix>shopping_cart</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <mat-label>Price</mat-label>
+                <input [(ngModel)]="ordercredentails.price" (keypress)="onlyNumberAllowed($event)" required name="price"
+                    type="text" matInput />
+                    <i class="material-icons" matSuffix>monetization_on</i>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <mat-label>qty</mat-label>
+                <input [(ngModel)]="ordercredentails.qty" (keypress)="onlyNumberAllowed($event)" required name="qty"
+                    type="text" matInput />
+                    <mat-icon matSuffix>shopping_basket</mat-icon>
+            </mat-form-field>
+
+            <div class="container text-center">
+                <button type="submit" mat-raised-button color="primary">Add</button>
+                <button type="reset" style="margin-left: 10px;" (click)="docheck()" mat-raised-button
+                    color="accent">Cancel</button>
+            </div>
+        </form>
+    </mat-card>
+</div>

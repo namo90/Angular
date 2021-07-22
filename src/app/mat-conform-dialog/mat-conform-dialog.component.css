@@ -1,0 +1,49 @@
+.conform-dialog-container #close-icon{
+    margin-left: 200px;
+    order: 2;
+    font-weight: bolder;
+}
+.conform-dialog-container .content-container{
+    margin: 5px 5px 15px 5px;
+    color: #8f9cb5;
+    display: flex;
+}
+.conform-dialog-container #no-button{
+    height: 50px;
+    width: 50px;
+}
+
+.conform-dialog-container #yes-button{
+    height: 50px;
+    width: 50px;
+    color: aqua;
+}
+
+.conform-dialog-container .mat-dialog-container{
+    border-radius: .25em .25em .4em .4em;
+    padding: 0px;
+}
+
+.btn-dialog-close{
+    width: 45px;
+    min-width: 0px !important;
+    height: 40px;
+    padding: 0px !important;
+    margin-left: 40px;
+}
+
+/*notification*/
+.snack-bar-container.notification simple-snack-bar{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.snack-bar-container.success{
+    background-color: #5cb85c;
+    color: #fff;
+}
+
+.snack-bar-container.delete{
+    background-color: hsl(355, 80%, 33%);
+    color: rgb(219, 201, 201);
+}

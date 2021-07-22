@@ -1,1 +1,97 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.text-center{
+    text-align: center;
+}
+
+.margin-top{
+    margin-top: 20px;
+}
+.form-field{
+    margin-bottom: 10px;
+    width:150px;
+    display: block !important;
+    margin-left: 45%;
+    text-align: center;
+}
+.hide{
+    display: none;
+  }
+  .mat-footer-row mat-footer-cell{
+    justify-content: center;
+    font-style: italic;
+  }
+
+
+  .conform-dialog-container #close-icon{
+    margin-left: 200px;
+    order: 2;
+    font-weight: bolder;
+}
+.conform-dialog-container .content-container{
+    margin: 5px 5px 30px 5px;
+    color: rgb(12, 11, 11);
+    display: flex;
+}
+.conform-dialog-container #no-button{
+    height: 50px;
+    width: 195px;
+    color: #8f9cb5;
+}
+.conform-dialog-container #close-icon:hover{
+    cursor: pointer;
+}
+
+.conform-dialog-container #yes-button{
+    height: 50px;
+    width: 195px;
+    color:#5cb85c;
+    background-color: aqua;
+}
+
+.conform-dialog-container .mat-dialog-container{
+    border-radius: .25em .25em .4em .4em;
+    padding: 0px;
+}
+
+.btn-dialog-close{
+    width: 45px;
+    min-width: 0px !important;
+    height: 40px;
+    padding: 0px !important;
+    margin-left: 40px;
+}
+
+/*notification*/
+snack-bar-container.delete{
+    background-color: hsl(355, 80%, 33%);
+    color: rgb(219, 201, 201);
+}
+
+snack-bar-container.success{
+    background-color: #5cb85c;
+    color: #fff;
+}
+snack-bar-container.loginSuccess{
+    background-color: #5cb85c;
+    color: #fff;
+}
+
+snack-bar-container.Notvalid{
+    background-color: hsl(355, 80%, 33%);
+    color: rgb(219, 201, 201);
+}
+
+snack-bar-container.logoutSuccess{
+    background-color: #5cb85c;
+    color: #fff;
+}
+
+
+snack-bar-container.notification simple-snack-bar{
+    font-size: 18px;
+    font-weight: bold;
+}

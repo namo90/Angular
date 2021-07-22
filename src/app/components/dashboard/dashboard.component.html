@@ -1,0 +1,144 @@
+<!--<div class="bootstrap-wrapper">
+    <div class="container text-center margin-top">
+        <h1>Welcome to Admin Panel</h1>
+        <h1>order is {{order.qty}}</h1>
+        <button (click)="getOrder()" mat-raised-button >Get Details</button>
+    </div>
+</div>-->
+
+<div class="search-div">
+  <button mat-raised-button (click)="oncreate()" class="add-button">
+    <mat-icon>add</mat-icon>
+    Create Order
+  </button>
+  
+  <mat-form-field class="search-form-field">
+    <input matInput [(ngModel)]="searchkey" placeholder="search" autocomplete="off" (keyup)="applyfilter()">
+    <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="onsearchkey()">
+      <div *ngIf="searchkey">
+       
+        <mat-icon>close</mat-icon>
+        </div>
+        <div *ngIf= "! searchkey">
+        <mat-icon>search</mat-icon>
+        </div>
+      
+    </button>
+  </mat-form-field>
+</div>
+<div class="mat-elevation-z8">
+<table mat-table [dataSource]="order1"  matSort>
+  <!-- Position Column -->
+  <ng-container matColumnDef="id" class="header-class">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="header-class"> No. </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="productName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="order-name" class="header-class"> Order Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.productName}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef class="header-class"> Price </th>
+    <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="qty">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="header-class"> Qty </th>
+    <td mat-cell *matCellDef="let element"> {{element.qty}} </td>
+  </ng-container>
+
+  <!-- Action  buttonw Column -->
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef class="header-class"></th>
+    <mat-cell *matCellDef="let element">
+      <!-- <button mat-icon-button (click)="onedit(element)"><mat-icon>launch</mat-icon></button> -->
+      <button mat-icon-button (click)="openDialog(element)">
+        <mat-icon>launch</mat-icon>
+      </button>
+
+      <button mat-icon-button color="warn" (click)="ondelete(element.id)">
+        <mat-icon>delete_outline</mat-icon>
+      </button>
+    </mat-cell>
+
+  </ng-container>
+<!-- 
+  <ng-container matColumnDef="loading">
+    <mat-footer-cell *matFooterCellDef aria-colspan="6">
+      Loading Data...
+    </mat-footer-cell>
+  </ng-container> -->
+  <!-- <ng-container matColumnDef="noData">
+    <mat-footer-cell *matFooterCellDef aria-colspan="6" style="align-items: center;">
+      No Data...
+    </mat-footer-cell>
+  </ng-container> -->
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  <!-- <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':order1!=null}"></mat-footer-row>
+  <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':!(order1!=null)}"></mat-footer-row> -->
+</table>
+ <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons class="paginator-modify"></mat-paginator> 
+ </div>
+<!-- <mat-paginator [length]="100"
+              [pageSize]="1"
+              [pageSizeOptions]="[5, 10, 25, 100]">
+</mat-paginator> -->
+<!-- <app- [childPosts]="parentdata"></app-child> -->
+
+<!-- <app-orderplace [childPosts]="parentdata"></app-orderplace> -->
+
+
+<!-- <div fxLayoutAlign="center center" fxFlexFill class="main-div">
+    <button class="btn-dialog-close" mat-stroked-button  (click)="onclose()" tabindex="-1"><mat-icon>close</mat-icon> 
+     <mat-card fxFlex="50">
+     <mat-toolbar color="primary">Order Place </mat-toolbar>
+     <form (ngSubmit)="onSubmit()" fxLayoutAlign="stretch" fxLayout="column" class="main-form" >
+
+      <mat-form-field class="full-width" >
+        <mat-label>id</mat-label>
+    <input 
+    [(ngModel)]="ordercredentails.id" required name="id"
+    type="text" matInput />
+        </mat-form-field>
+
+        <mat-form-field class="full-width" >
+          <mat-label>uk</mat-label>
+      <input 
+      [(ngModel)]="ordercredentails.ui_fk" required name="ui_fk"
+      type="text" matInput />
+          </mat-form-field>
+         <mat-form-field class="full-width" >
+         <mat-label>OrderName</mat-label>
+     <input 
+     [(ngModel)]="ordercredentails.productName" required name="productName"
+     type="text" matInput />
+         </mat-form-field>
+     
+         <mat-form-field class="full-width"  >
+             <mat-label>Price</mat-label>
+             <input 
+             [(ngModel)]="ordercredentails.price" required name="price"
+             type="text" matInput />
+         </mat-form-field>
+         <mat-form-field class="full-width"  >
+             <mat-label>qty</mat-label>
+             <input 
+             [(ngModel)]="ordercredentails.qty" required name="qty"
+             type="text" matInput />
+         </mat-form-field>
+     
+                 <div class="container text-center">
+     <button type="submit" mat-raised-button color="primary">Add</button>
+     <button type="reset" style="margin-left: 10px;"(click)="docheck()" mat-raised-button color="accent">Cancel</button>
+                 </div>
+     </form>
+ </mat-card>
+ </div>
+   -->

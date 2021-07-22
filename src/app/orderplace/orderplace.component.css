@@ -1,0 +1,20 @@
+.full-width{
+    width: 100;
+}
+/* .controles-container > *{
+    width: 100%;
+} */
+
+.main-div mat-card{
+    padding:0px;
+
+}
+.main-form{
+    padding: 20px;
+}
+.button-size{
+    width: 20px;
+}
+.reset-main{
+    margin-left: 30px;
+}
