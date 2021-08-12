@@ -22,7 +22,7 @@ export class OrderplaceComponent implements OnInit {
   userid: any
   FlagValue: any;
   hideMe: boolean = true;
-
+  submitted:boolean=false;
   @Input() childPosts: any[] = [];
   constructor(private orderservice: OrderService, private loginService: LoginServiceService,
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -31,6 +31,26 @@ export class OrderplaceComponent implements OnInit {
 
   ngOnInit(): void {
     console.log("ffffffffffff", this.data.flag);
+    // this.FlagValue = this.data.flag;
+    // this.ordercredentails.productName = this.data.Data.productName;
+    // this.ordercredentails.price = this.data.Data.price;
+    // this.ordercredentails.qty = this.data.Data.qty;
+    // this.ordercredentails.ui_fk = this.data.Data.ui_fk;
+    // this.ordercredentails.id = this.data.Data.id;
+    // console.log("****", this.ordercredentails);
+    this.editPopValue();
+    this.getLoggedin();
+    // this.orderservice.$isLoggedin.subscribe((data) => {
+    //   this.ordercredentails = data;
+    //   console.log("i got ordercredentails", this.ordercredentails);
+
+    // })
+    console.log(".........." + this.childPosts);
+
+  }
+
+  editPopValue()
+  {
     this.FlagValue = this.data.flag;
     this.ordercredentails.productName = this.data.Data.productName;
     this.ordercredentails.price = this.data.Data.price;
@@ -38,19 +58,20 @@ export class OrderplaceComponent implements OnInit {
     this.ordercredentails.ui_fk = this.data.Data.ui_fk;
     this.ordercredentails.id = this.data.Data.id;
     console.log("****", this.ordercredentails);
+  }
+
+  getLoggedin() {
     this.orderservice.$isLoggedin.subscribe((data) => {
       this.ordercredentails = data;
       console.log("i got ordercredentails", this.ordercredentails);
 
     })
-    console.log(".........." + this.childPosts);
-
   }
-  doget(childPosts: any) {
-    debugger;
-    for (let i = 0; i < childPosts.length; i++)
-      console.log(childPosts[i]);
-  }
+  // doget(childPosts: any) {
+  //   debugger;
+  //   for (let i = 0; i < childPosts.length; i++)
+  //     console.log(childPosts[i]);
+  // }
 
  
 
@@ -76,6 +97,7 @@ export class OrderplaceComponent implements OnInit {
             //success
             console.log("getting order suucess" + " " + response);
             this.notificationService.success(':: Summited successfully');
+            this.submitted=true;
             window.location.href = "/dashboard"
           },
           (error: any) => {
@@ -90,13 +112,13 @@ export class OrderplaceComponent implements OnInit {
       }
     }
   }
-  docheck() {
-    debugger;
-    console.log("here get data", this.ordercredentails.productName)
-  }
-  onclose() {
-    alert("dddddddddddddddd");
-  }
+  // docheck() {
+  //   debugger;
+  //   console.log("here get data", this.ordercredentails.productName)
+  // }
+  // onclose() {
+  //   alert("dddddddddddddddd");
+  // }
 
 
   //update function

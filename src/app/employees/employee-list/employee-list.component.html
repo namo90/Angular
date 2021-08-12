@@ -1,0 +1,68 @@
+<div class="search-div">
+    <!-- <button mat-raised-button (click)="oncreate()" class="add-button">
+      <mat-icon>add</mat-icon>
+      Create Order
+    </button> -->
+    
+    <mat-form-field class="search-form-field">
+      <input matInput [(ngModel)]="searchkey" placeholder="search" autocomplete="off" (keyup)="applyfilter()">
+      <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="onsearchkey()">
+        <div *ngIf="searchkey">
+         
+          <mat-icon>close</mat-icon>
+          </div>
+          <div *ngIf= "! searchkey">
+          <mat-icon>search</mat-icon>
+          </div>
+        
+      </button>
+    </mat-form-field>
+  </div>
+<div>
+    
+    <mat-table [dataSource]="listData" matSort>
+        <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.id}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="productName">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>productName</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.productName}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="price">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Price</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.price}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="qty">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Qty</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.qty}}</mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displyedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row;columns:displyedColumns;"></mat-row>
+        <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{hide:listData!=null}"></mat-footer-row>
+      
+      <ng-container matColumnDef="loading">
+          <mat-footer-cell *matFooterCellDef colspan="6">
+              Loading data....
+          </mat-footer-cell>
+
+      </ng-container>
+        <!-- Action  buttonw Column -->
+        <ng-container matColumnDef="Actions">
+            <th mat-header-cell *matHeaderCellDef class="header-class"></th>
+            <mat-cell *matCellDef="let element">
+                <!-- <button mat-icon-button (click)="onedit(element)"><mat-icon>launch</mat-icon></button> -->
+                <button mat-icon-button (click)="openDialog(element)">
+                    <mat-icon>launch</mat-icon>
+                </button>
+
+                <button mat-icon-button color="warn" (click)="ondelete(element.id)">
+                    <mat-icon>delete_outline</mat-icon>
+                </button>
+            </mat-cell>
+
+        </ng-container>
+
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons class="paginator-modify"></mat-paginator> 
+</div>

@@ -29,6 +29,15 @@ import { MatCardModule } from '@angular/material/card';
 import { MatConformDialogComponent } from './mat-conform-dialog/mat-conform-dialog.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { ExcelreadeComponent } from './excelreade/excelreade.component';
+import { EmployeesComponent } from './components/employees/employees.component';
+import { EmployeeComponent } from './components/employee/employee.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
+
 
 @NgModule({
   declarations: [
@@ -39,7 +48,11 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     DashboardComponent,
     OrderplaceComponent,
     OrderComponent,
-    MatConformDialogComponent
+    MatConformDialogComponent,
+    ExcelreadeComponent,
+    EmployeesComponent,
+    EmployeeComponent,
+    EmployeeListComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +73,12 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     FlexLayoutModule,
     MatCardModule,
     MatPaginatorModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    ReactiveFormsModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule
 
   ],
   providers: [LoginServiceService, [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }]],

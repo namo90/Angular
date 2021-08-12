@@ -1,9 +1,9 @@
 <div fxLayoutAlign="center center" fxFlexFill class="main-div">
     <!-- <button class="btn-dialog-close" mat-stroked-button  (click)="onclose()" tabindex="-1"><mat-icon>close</mat-icon> -->
 
-    <mat-card fxFlex="50">
-        <mat-toolbar color="primary">Order Place <mat-icon id="close-icon" (click)="closeDialog()"
-                style="margin-left: 98px;">close</mat-icon>
+    <mat-card fxFlex="70">
+        <mat-toolbar color="primary">Order Place <div justify-content="center"><mat-icon id="close-icon"  (click)="closeDialog()"
+                style="margin-left: 260px;">close</mat-icon></div>
         </mat-toolbar>
         <form (ngSubmit)="onSubmit()" fxLayoutAlign="stretch" fxLayout="column" class="main-form">
 
@@ -26,9 +26,9 @@
                     <mat-icon matSuffix>shopping_basket</mat-icon>
             </mat-form-field>
 
-            <div class="container text-center">
+            <div fxLayoutAlign="center center">
                 <button type="submit" mat-raised-button color="primary">Add</button>
-                <button type="reset" style="margin-left: 10px;" (click)="docheck()" mat-raised-button
+                <button type="reset" style="margin-left: 10px;" mat-raised-button
                     color="accent">Cancel</button>
             </div>
         </form>

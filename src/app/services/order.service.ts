@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, EventEmitter } from '@angular/core';
+import { Observable } from 'rxjs';
 import { editInorderEventArgs } from '../components/dashboard/dashboard.component';
 
 
@@ -16,17 +17,29 @@ export class OrderService {
     qty: 0,
     ui_fk: 0
   };
-  url = "http://localhost:9090/"
+  url = "http://localhost:9090/";
+  getAllrecordsurl = "http://localhost:9090/findAllOrders";
+
 
 
   constructor(private http: HttpClient) { }
-
+   httpHeaders=new HttpHeaders({
+'content-type':'application/json',
+  });
   saveOrder(ordercredentails: any) {
     debugger;
     console.log("iside  the  order save ggg")
     console.log(this.url + 'save')
 
     return this.http.post(this.url + 'save', ordercredentails)
+  }
+
+  //calling excelto json 
+
+  sendJsondata(jsondata:any){
+    debugger;
+    console.log("gtting json object",jsondata)
+    return this.http.post(this.url + 'exceltodb', jsondata,{headers:this.httpHeaders});
   }
 
   //update function calling
@@ -58,12 +71,13 @@ export class OrderService {
     console.log("dashboard edit");
   }
 //get all records of based on user
-  getAllRecord(userid: string) {
+  getAllRecord(userid: string): Observable<any[]> {
     debugger;
     console.log("iside  the  order findAllOrders ggg")
     console.log(this.url + 'findAllOrders')
 
     return this.http.get<any[]>(this.url + 'findByUser?id=' + userid)
+    
   }
   //filter the record
   filterRecord(keyword: any) {
@@ -76,6 +90,6 @@ export class OrderService {
     console.log("iside  the  order findAllOrders ggg")
     console.log(this.url + 'findAllOrders')
 
-    return this.http.get(this.url + 'findAllOrders')
+    return this.http.get<any[]>(this.url + 'findAllOrders')
   }
 }

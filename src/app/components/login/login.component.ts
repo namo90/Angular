@@ -13,6 +13,8 @@ export class LoginComponent implements OnInit {
     username: '',
     password: ''
   }
+  submitName!: string;
+  
 
   constructor(public loginService: LoginServiceService,private notificationservice: NotificationService) { }
 
